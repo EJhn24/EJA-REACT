@@ -446,7 +446,10 @@ a {
 
 .projects-section {
   padding: 3rem 1rem;
+  border-top: 2px solid #e0e0e0;   
+  border-bottom: 2px solid #e0e0e0;
 }
+
 
 .projects-section h3 {
   font-size: 2rem;
@@ -594,8 +597,17 @@ a {
 }
 
 .logo-techtonic {
-  max-width: 150px;
+  max-width: 100px;
   height: auto;
+}
+
+.quote {
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 1rem;
+  color: #555; 
+  text-align: left;
+  max-width: 300px;
 }
 
 .center-section {

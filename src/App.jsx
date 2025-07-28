@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import resume from './assets/ejaresume.pdf';
 import profileImage from './assets/profile.jpg'
-import logo from './assets/logoko.png'
+import logo from './assets/EJA LOGO.png'
 
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -162,9 +162,13 @@ function App() {
                   <div className="left-section">
                     <div className="logo-button-wrapper">
                       <img src={logo} alt="EJA Logo" className="logo-techtonic" />
-                      {/* <button onClick={openContactModal} className="btn contact-btn">Send a Message</button> */}
+                      <p className="quote">
+                        “Design with purpose. <br />Code with precision.”
+                      </p>
                     </div>
                   </div>
+
+                  {/* <button onClick={openContactModal} className="btn contact-btn">Send a Message</button> */}
                   <div className="center-section">
                     <p className="contact-header">Let’s work together!</p>
                     <p>
