@@ -20,6 +20,7 @@ function App() {
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
+  const [activeSection, setActiveSection] = useState("home");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -49,6 +50,26 @@ function App() {
     }
   }, [showIntro]);
 
+  useEffect(() => {
+    const sections = ["home", "projects", "skills", "contact"];
+    
+    const handleScroll = () => {
+      for (const id of sections) {
+        const section = document.getElementById(id);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 80 && rect.bottom >= 80) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   const openModal = (project) => {
     setModalContent(project);
@@ -65,8 +86,8 @@ function App() {
           <div id="intro-animation">
             <div className="logo-fade">
               <img src={profileImage} alt="Logo or Profile" />
-              <h1>Welcome!</h1>
-              <p>Hi, I'm Ehdsell</p>
+              <h1 className="">Welcome to my Portfolio!</h1>
+              {/* <p>Hi, I'm Ehdsell</p> */}
             </div>
           </div>
         )}
@@ -74,12 +95,54 @@ function App() {
         {!showIntro && (
           <>
             <nav className="navbar">
-              <div className="logo">EJA</div>
+              <div className="logo">
+                <img src={logo} alt="EJA Logo" className="logo-img" />
+              </div>
               <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-                <li><button onClick={() => { setMenuOpen(false); document.getElementById("home").scrollIntoView({ behavior: "smooth" }); }}>Home</button></li>
-                <li><button onClick={() => { setMenuOpen(false); document.getElementById("projects").scrollIntoView({ behavior: "smooth" }); }}>Projects</button></li>
-                <li><button onClick={() => { setMenuOpen(false); document.getElementById("skills").scrollIntoView({ behavior: "smooth" }); }}>Skills</button></li>
-                <li><button onClick={() => { setMenuOpen(false); document.getElementById("contact").scrollIntoView({ behavior: "smooth" }); }}>Contact</button></li>
+                <li>
+                  <button
+                    className={activeSection === "home" ? "active-nav" : ""}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
+                    Home
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className={activeSection === "projects" ? "active-nav" : ""}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
+                    Projects
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className={activeSection === "skills" ? "active-nav" : ""}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      document.getElementById("skills").scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
+                    Skills
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className={activeSection === "contact" ? "active-nav" : ""}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
+                    Contact
+                  </button>
+                </li>
               </ul>
               <button className="theme-toggle" onClick={toggleTheme}>
                 {theme === "light" ? "Dark" : "Light"} Mode
@@ -95,19 +158,19 @@ function App() {
                   <img src={profileImage} alt="Profile" className="animate-profile" />
                 </div>
                 <div className="App-content">
-                  <h1>Front-end Developer</h1>
+                  <h1>Front-end Developer & UI/UX Designer</h1>
                     <p>
-                      I’m Ehdsell John Apan, a Bachelor of Science in Information Technology student at
-                      <a className="highlight" href="https://www.facebook.com/GordonCollegeOfficial/" target="_blank" rel="noopener noreferrer"> Gordon College</a> with a strong focus on front-end development. 
+                      I’m Ehdsell John Apan, a fresh graduate with a Bachelor of Science in Information Technology from
+                      <a className="highlight" href="https://www.facebook.com/GordonCollegeOfficial/" target="_blank" rel="noopener noreferrer"> Gordon College</a>, with a strong focus on front-end development. 
                       I specialize in designing and building responsive, user-friendly interfaces that enhance digital experiences.
-                    </p>
-                    <div className="button-row">
-                      <button className="App-button" onClick={() => setShowModal(true)}>
+                  </p>
+                  <div className="button-row">
+                    <button className="App-button" onClick={() => setShowModal(true)}>
                         View Resume
-                      </button>
-                    </div>
+                    </button>
                   </div>
-                </section>
+                </div>
+              </section>
 
                 {showModal && (
                   <div className="modal-overlay" onClick={() => setShowModal(false)}>
