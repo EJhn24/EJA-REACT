@@ -33,6 +33,7 @@ a {
   pointer-events: none;
   text-align: center;
   padding: 0 1.5rem;
+  box-sizing: border-box;
 }
 
 .logo-fade img {
@@ -225,6 +226,10 @@ a {
 
 .nav-links li button:hover {
   background-color: #088e54;
+}
+
+.nav-links li button.active-nav {
+  background-color: #088e54;
   color: #ffffff;
 }
 
@@ -266,11 +271,11 @@ a {
 
   /* ✅ Mobile nav styles */
   .light-theme .nav-links {
-    background-color: #0a0f1a; /* dark background */
+    background-color: #0a0f1a; 
   }
 
   .light-theme .nav-links li button {
-    color: #ffffff; /* white text */
+    color: #ffffff; 
     border: 1px solid #ffffff;
   }
 
@@ -280,11 +285,11 @@ a {
   }
 
   .dark-theme .nav-links {
-    background-color: #ffffff; /* light background */
+    background-color: #ffffff;
   }
 
   .dark-theme .nav-links li button {
-    color: #0a0f1a; /* dark text */
+    color: #0a0f1a; 
     border: 1px solid #0a0f1a;
   }
 
@@ -308,7 +313,6 @@ a {
   border-radius: 999px;
   cursor: pointer;
   font-weight: bold;
-  margin-left: 1rem;
   transition: all 0.3s ease;
 }
 
@@ -385,7 +389,7 @@ a {
 }
 
 .App-button {
-  background-color: #003366;
+  background-color: #066a3f;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -393,12 +397,12 @@ a {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
-  display: inline-block; /* Keep it inline for centering */
-  margin: 0 auto; /* Center it horizontally if inside a block container */
+  display: inline-block; 
+  margin: 0 auto; 
 }
 
 .App-button:hover {
-  background-color: #2196f3;
+  background-color:#088e54
 }
 
 .button-row {
@@ -780,35 +784,6 @@ a {
   font-size: 14px;
 }
 
-
-
-
-
-
-/* .footer {
-  width: 100%;
-  text-align: center;
-  padding: 1rem 0;
-  background-color: #0a0f1a; 
-  color: white;
-  font-size: clamp(0.8rem, 2.5vw, 1rem);
-  box-sizing: border-box;
-  position: relative;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Light Theme */
 .light-theme {
   background-color: #f8f8f8;
@@ -845,6 +820,11 @@ a {
 }
 
 .light-theme .nav-links li button:hover {
+  background-color: #088e54;
+  color: #ffffff;
+}
+
+.light-theme .nav-links li button.active-nav {
   background-color: #088e54;
   color: #ffffff;
 }
@@ -919,6 +899,11 @@ a {
 .dark-theme .nav-links li button:hover {
   background-color: #ffffff;
   color: #0a0f1a;
+}
+
+.dark-theme .nav-links li button.active-nav {
+  background-color: #088e54;
+  color: #ffffff;
 }
 
 .dark-theme .hamburger .bar {
