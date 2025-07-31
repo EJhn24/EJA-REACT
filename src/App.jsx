@@ -191,7 +191,8 @@ function App() {
                   <div className="projects-grid">
                     {featuredProjects.map((project, index) => (
                       <div key={index} className="project-card" onClick={() => openModal(project)}>
-                        <h4>{project.title}</h4>
+                        <img src={project.img}/>
+                        <h4>{project.role}</h4>
                         <p>{project.description}</p>
                       </div>
                     ))}
